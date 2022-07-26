@@ -8,8 +8,8 @@
     "start:app-ts": "yarn workspace @project/app-typescript start",
     "start:storybook": "yarn workspace @project/storybook storybook",
     "start:storybook-ts": "yarn workspace @project/storybook-typescript storybook",
-    "test": "FORCE_COLOR=true lerna run lint && CI=true FORCE_COLOR=true lerna run test -- --coverage",
-    "deploy": "FORCE_COLOR=true lerna run deploy"
+    "test": " lerna run lint &&  lerna run test -- --coverage",
+    "deploy": " lerna run deploy"
   },
   "workspaces": {
     "packages": [
