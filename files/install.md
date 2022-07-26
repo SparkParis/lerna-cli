@@ -58,6 +58,15 @@ https://www.npmjs.com/
 
 4.电脑终端登录账户密码（见下图）
  yarn login
+ 
+5.提交代码之后发布包（具体发包流程见多版本管理）
+lerna publish
 ```
 
 ![1658846723457](install/1658846723457.png)
+
+# 多包版本管理
+
+通过`lerna publish` 发布版本
+
+![1658849200414](install/1658849200414.png)
