@@ -43,11 +43,7 @@
     "lerna": "^3.20.2",
     "prettier": "^1.19.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn test"
-    }
-  },
+  "husky": {},
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",

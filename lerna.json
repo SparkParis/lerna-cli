@@ -1,9 +1,11 @@
 {
-  "useWorkspaces": true,
   "packages": [
     "packages/*/*"
   ],
-  "version": "1.0.0",
+  "version": "independent",
+  "useNx": true,
+  "useWorkspaces": true,
+  "npmClient": "yarn",
   "command": {
     "run": {
       "npmClient": "yarn"
@@ -12,7 +14,8 @@
       "ignoreChanges": [
         "ignored-file",
         "*.md"
-      ]
+      ],
+      "message": "chore(release): publish"
     }
   }
 }
