@@ -18,10 +18,10 @@
     "cross-env": "6.0.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "prop-types": "^15.7.2",
     "eslint-config-prettier": "^6.9.0",
+    "eslint-config-react-app": "^5.1.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-config-react-app": "^5.1.0"
+    "prop-types": "^15.7.2"
   },
   "browserslist": [
     ">0.2%",
@@ -48,5 +48,6 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "38559791a96bc4945628df00a7248a9c73d33c00"
 }

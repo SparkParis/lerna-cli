@@ -1,7 +1,7 @@
 {
   "name": "@project/app-ant-design-rewired",
   "version": "1.0.0",
-  "homepage": "https://react-workspaces.github.io/react-workspaces-playground",
+  "homepage": "",
   "private": true,
   "scripts": {
     "start": "react-app-rewired start --scripts-version @react-workspaces/react-scripts",
