@@ -136,7 +136,7 @@ lerna publish //注意在发包之前先提交代码
 
 lerna是monorepo项目，涉及不同包之间存在不同版本号的管理，在创建lerna项目采用独立模式创建，不同packages维护自身的版本号。发布之前需进行《环境配置环节》
 
-### 1.monorepo独立模式配置
+## 1.monorepo独立模式配置
 
 - 初始化独创建为独立模式`lerna init --independent`
 
@@ -166,7 +166,7 @@ fix模式和独立模式的区别在发布的区别见下图
 
 ![image-20220727165234204](install/image-20220727165234204.png)
 
-### 2.packages中不同包packages.json配置
+## 2.packages中不同包packages.json配置
 
 - packages中的子包名package.json中的包名如果是`@/package/name`带有的为private权限，如果要设置为公有的，需要做如下设置
 
@@ -176,7 +176,15 @@ fix模式和独立模式的区别在发布的区别见下图
   },
 ```
 
-### 3.发布
+## 3.发布
+
+### 3.1发布规范（语义化版本[semver](https://semver.org/)控制）
+
+
+
+### 3.2发布流程
+
+
 
 - 发布流程
 
