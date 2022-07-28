@@ -29,7 +29,8 @@ lerna changed //列出下次发包更新的包
 lerna ls
 
 5.清理node_modules
-lerna clean
+lerna clean (注意只能清除packages下node_modules,并不能删除根目录下面的node_modules,
+建议：根目录执行脚本"clear-all": "rimraf node_modules && lerna clean -y")
 
 6.运行shell脚本
 $ lerna run <script> -- [..args] # 在所有包下运行指定
