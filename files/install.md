@@ -156,6 +156,105 @@ lerna publish //注意在发包之前先提交代码
 
 ![1658846723457](install/1658846723457.png)
 
+# 规范化配置
+
+##  1.[ commitizen 提交规范](https://www.conventionalcommits.org/en/v1.0.0/)
+
+- 安装插件
+
+```
+yarn add  commitizen cz-lerna-changelog -D -W //根目录安装提交规范
+```
+
+- 根目录package.json增加配置config
+
+```
+"config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+```
+
+- commitizen并非采用全局安装（或者也可在全局安装直接使用命令`git-cz`来提交），配置script脚本,运行`yarn commmit` 结果如下图所示，提交type选择见[commitien官网](https://www.conventionalcommits.org/en/v1.0.0/)
+
+```
+"script":{
+	"commit":"git-cz"
+}
+```
+
+<img src="install/1659080471495.png" alt="1659080471495" style="zoom:80%;" />
+
+| type  | desc     | type     | desc                             |
+| ----- | -------- | -------- | -------------------------------- |
+| feat  | 新增功能 | fix      | 修复bug                          |
+| docs  | 更改文档 | style    | 样式调整（空格，格式化，分号等） |
+| build | 构建相关 | refactor | 重构，无修复bug和添加功能        |
+| perf  | 性能优化 | revert   | 回退commit版本                   |
+
+## 2.commitlint && husky提交格式化
+
+ 校验的工作由 commitlint 来完成，校验的时机则由 husky 来指定。husky 继承了 Git 下所有的钩子，在触发钩子的时候，husky 可以阻止不合法的 commit,push 。用户在使用规范化提交方式提交就会提交失败
+
+- 安装插件
+
+```
+yarn add  @commitlint/cli @commitlint/config-conventional -D -W
+```
+
+- 根目录配置文件 commitlint.config.js 
+
+```
+module.exports = { 
+    extends: ['@commitlint/config-conventional'] 
+}
+```
+
+- 安装husky`yarn add  husky -D -W`
+- 根目录package.json添加`"husky"`
+
+```
+"husky": { 
+         "hooks": { 
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS" 
+     }
+ }
+```
+
+ "commit-msg":是git提交时校验提交信息的钩子，当触发时便会使用 commitlit 来校验 ,提交不符合规范不能提交
+
+安装后提交`yarn commit`图见下
+
+<img src="install/1659085692927.png" alt="1659085692927" style="zoom:50%;" />
+
+## 3.eslint && lint-staged代码规范化
+
+ `lint-staged staged` 是 Git 概念，表示暂存区，`lint-staged` 只检查并矫正暂存区中的文件提高校，可以校验效率，不会改变老的项目
+
+- 安装插件`yarn add   standard lint-staged -D  -W`
+
+- 配置根目录package.json
+
+```
+"lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+```
+
+- 安装eslint（eslint的配置文件这里主要放在packages下的子包）
+
+```
+yarn add eslint -D -W
+//初始化，可以选择不同风格和编码，见下图
+npx eslint --init
+```
+
+![1659085438324](install/1659085438324.png)
+
 # 多包版本管理和规范
 
 lerna是monorepo项目，涉及不同包之间存在不同版本号的管理，在创建lerna项目采用独立模式创建，不同packages维护自身的版本号。发布之前需进行《环境配置环节》
@@ -247,7 +346,7 @@ fix模式和独立模式的区别在发布的区别见下图
   1. 运行lerna updated来决定哪一个包需要被publish
   2. 如果有必要，将会更新lerna.json中的version
   3. 将所有更新过的的包中的package.json的version字段更新
-4. 将所有更新过的包中的依赖更新
+  4. 将所有更新过的包中的依赖更新
   5. 为新版本创建一个git commit或tag
   6. 将包publish到npm上
   7.撤销版本unpublish
@@ -265,100 +364,8 @@ $ lerna publish from-git
 
 - 下架版本`npm unpublish [<@scope>/]<pkg>@<version> `
 
-通过,
-
 
 
 ![image-20220728171020014](install/image-20220728171020014.png)
 
-# 规范化配置
-
-##  1.[ commitizen 提交规范](https://www.conventionalcommits.org/en/v1.0.0/)
-
-- 安装插件
-
-```
-yarn add  commitizen cz-lerna-changelog -D -W //根目录安装提交规范
-```
-
-- 根目录package.json增加配置config
-
-```
-"config": {
-    "commitizen": {
-      "path": "./node_modules/cz-lerna-changelog"
-    }
-  },
-```
-
-- commitizen并非采用全局安装（或者也可在全局安装直接使用命令`git-cz`来提交），配置script脚本,运行`yarn commmit` 结果如下图所示，提交type选择见[commitien官网](https://www.conventionalcommits.org/en/v1.0.0/)
-
-```
-"script":{
-	"commit":"git-cz"
-}
-```
-
-<img src="install/1659080471495.png" alt="1659080471495" style="zoom:80%;" />
-
-## 2.commitlint && husky提交格式化
-
- 校验的工作由 commitlint 来完成，校验的时机则由 husky 来指定。husky 继承了 Git 下所有的钩子，在触发钩子的时候，husky 可以阻止不合法的 commit,push 。用户在使用规范化提交方式提交就会提交失败
-
-- 安装插件
-
-```
-yarn add  @commitlint/cli @commitlint/config-conventional -D -W
-```
-
-- 根目录配置文件 commitlint.config.js 
-
-```
-module.exports = { 
-    extends: ['@commitlint/config-conventional'] 
-}
-```
-
-- 安装husky`yarn add  husky -D -W`
-- 根目录package.json添加`"husky"`
-
-```
-"husky": { 
-         "hooks": { 
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS" 
-     }
- }
-```
-
- "commit-msg":是git提交时校验提交信息的钩子，当触发时便会使用 commitlit 来校验 ,提交不符合规范不能提交
-
-安装后提交`yarn commit`图见下
-
-<img src="install/1659085692927.png" alt="1659085692927" style="zoom:50%;" />
-
-## 3.eslint && lint-staged代码规范化
-
- `lint-staged staged` 是 Git 概念，表示暂存区，`lint-staged` 只检查并矫正暂存区中的文件提高校，可以校验效率，不会改变老的项目
-
-- 安装插件`yarn add   standard lint-staged -D  -W`
-
-- 配置根目录package.json
-
-```
-"lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-```
-
-- 安装eslint（eslint的配置文件这里主要放在packages下的子包）
-
-```
-yarn add eslint -D -W
-//初始化，可以选择不同风格和编码，见下图
-npx eslint --init
-```
-
-![1659085438324](install/1659085438324.png)
+# 

@@ -17,6 +17,9 @@
         "files"
       ],
       "message": "chore(release): publish"
+    },
+    "version": {
+      "conventionalCommits": true
     }
   }
 }
