@@ -301,7 +301,7 @@ yarn add  commitizen cz-lerna-changelog -D -W //根目录安装提交规范
 
 <img src="install/1659080471495.png" alt="1659080471495" style="zoom:80%;" />
 
-## 2.commitlint && husky代码格式化
+## 2.commitlint && husky提交格式化
 
  校验的工作由 commitlint 来完成，校验的时机则由 husky 来指定。husky 继承了 Git 下所有的钩子，在触发钩子的时候，husky 可以阻止不合法的 commit,push 。用户在使用规范化提交方式提交就会提交失败
 
@@ -332,12 +332,29 @@ module.exports = {
 
  "commit-msg":是git提交时校验提交信息的钩子，当触发时便会使用 commitlit 来校验 ,提交不符合规范不能提交
 
-- husky:前端代码自动格式化
--  lint-staged: 用于实现每次提交只检查本次提交所修改的文件。  
-- eslint
+## 3.eslint && lint-staged代码规范化
+
+ `lint-staged staged` 是 Git 概念，表示暂存区，`lint-staged` 只检查并矫正暂存区中的文件提高校，可以校验效率，不会改变老的项目
+
+- 安装插件`yarn add   standard lint-staged -D  -W`
+
+- 配置根目录package.json
 
 ```
-//初始化
+"lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+```
+
+- 安装eslint（eslint的配置文件这里主要放在packages下的子包）
+
+```
+yarn add eslint -D -W
+//初始化，可以选择不同风格和编码，见下图
 npx eslint --init
 ```
 
+![1659085438324](install/1659085438324.png)

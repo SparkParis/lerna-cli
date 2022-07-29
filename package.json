@@ -47,7 +47,9 @@
     "husky": "^8.0.1",
     "jest-prop-type-error": "^1.1.0",
     "lerna": "^3.20.2",
-    "prettier": "^1.19.1"
+    "lint-staged": "^13.0.3",
+    "prettier": "^1.19.1",
+    "standard": "^17.0.0"
   },
   "husky": {
     "hooks": {
@@ -58,6 +60,12 @@
     "commitizen": {
       "path": "./node_modules/cz-lerna-changelog"
     }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [
