@@ -332,6 +332,10 @@ module.exports = {
 
  "commit-msg":是git提交时校验提交信息的钩子，当触发时便会使用 commitlit 来校验 ,提交不符合规范不能提交
 
+安装后提交`yarn commit`图见下
+
+<img src="install/1659085692927.png" alt="1659085692927" style="zoom:50%;" />
+
 ## 3.eslint && lint-staged代码规范化
 
  `lint-staged staged` 是 Git 概念，表示暂存区，`lint-staged` 只检查并矫正暂存区中的文件提高校，可以校验效率，不会改变老的项目
