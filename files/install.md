@@ -170,15 +170,16 @@ lerna是monorepo项目，涉及不同包之间存在不同版本号的管理，�
     "useWorkspaces": true,
     "npmClient": "yarn", //允许使用yarn workspace命令安装
     "version": "independent",
-    "npmClient": "yarn", //允许使用yarn workspace命令安装
+    "npmClient": "yarn", //运行命令的客户端(也可以根据每个命令单独指定)。设定为"yarn"则使用yarn运行。默认值是"npm"
     "command": {
       "run": {
-        "npmClient": "yarn"
+        "npmClient": "yarn" //运行指令的时候
       },
       "publish": {
-        "ignoreChanges": ["ignored-file", "*.md"],
-        "message": "chore(release): publish",
-        "registry": "发布的仓库名称"
+        "ignoreChanges": ["ignored-file", "*.md"],//通配符的数组，其中的值不会被 lerna 监测更改和发布。使用它可以防止因更改发布不必要的新版本，比如仅仅是修复 README.md 的错误。
+        "message": "chore(release): publish",//执行发布版本更新时的自定义提交消息。更多细节见@lerna/version
+        "registry": "发布的仓库名称"  //设置要发布的自定义注册 url，而非 npmjs.org，如果需要的话，您必须经过授权,也可不用写，直接设置registry发包
+  
       }
     }
   }
@@ -194,7 +195,8 @@ fix模式和独立模式的区别在发布的区别见下图
 
 ```
 "publishConfig": {
-    "access": "public"
+    "access": "public"，
+     // "registry": "",//单个包配置npm地址
   },
 ```
 
@@ -204,15 +206,23 @@ fix模式和独立模式的区别在发布的区别见下图
 
 ### 3.1发布规范（语义化版本[semver](https://semver.org/)控制）
 
-**语义化版本格式**：主版本号.次版本号.修订号（MAJOR.MINOR.PATCH）
+**语义化版本格式**：主版本号（major）.次版本号（minor）.修订号（patch）
 
-- 主版本号：做了不兼容的 API 修改（进行不向下兼容的修改）
-- 次版本号： 了向下兼容的功能性增加（API 保持向下兼容的新增及修改）
-- 修订号：做了向下兼容的问题修正（修复问题但不影响 API）
+- 主版本号：不兼容的 API 修改（进行不向下兼容的修改）
+- 次版本号： 向下兼容的功能性增加（API 保持向下兼容的新增及修改）
+- 修订号：向下兼容的问题修正（修复问题但不影响 API）
 
 **版本选择**
 
-- 
+- patch： 升级补丁版本号 
+- minor： 升级小版本号 
+- major： 升级大版本号 
+- prepatch、preminor、premajor、prerelease：先行版本
+  - 内部版本alpha：内部版本较多，处于开发阶段，存在bug，开发人员使用阶段
+  - 公测版本beta：错误解决阶段，相较于alpha还需ui测试
+  - rc：正式版本的候选阶段
+- custom ：手动输入版本号
+- custom version
 
 ![image-20220728171137720](install/image-20220728171137720.png)
 
