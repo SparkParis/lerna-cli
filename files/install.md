@@ -273,6 +273,36 @@ $ lerna publish from-git
 
 # 规范化配置
 
+##  1.[代码提交规范](https://www.conventionalcommits.org/en/v1.0.0/)
+
+- 安装插件
+
+```
+yarn add  commitizen cz-lerna-changelog -D -W //根目录安装提交规范
+```
+
+- 根目录package.json增加配置config
+
+```
+"config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+```
+
+- commitizen并非采用全局安装，配置script脚本,运行`yarn commmit` 结果如下图所示，提交type选择见[commitien官网](https://www.conventionalcommits.org/en/v1.0.0/)
+
+```
+"script":{
+	"commit":"git-cz"
+}
+```
+
+<img src="install/1659080471495.png" alt="1659080471495" style="zoom:80%;" />
+
+## 前端代码格式化
+
 - husky:前端代码自动格式化
 -  lint-staged: 用于实现每次提交只检查本次提交所修改的文件。  
 - eslint
