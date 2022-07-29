@@ -27,7 +27,10 @@ lerna的独立模式会让每个包单独发布和管理，创建lerna+monorepo�
 
 ![image-20220728144758477](install/image-20220728144758477.png)
 
-# [lerna命令](https://lerna.js.org/)
+# [lerna命令](https://github.com/lerna/lerna/tree/main/commands)
+
+[lerna官网文档](https://lerna.js.org/),[lerna命令使用文档](https://github.com/lerna/lerna/tree/main/commands)
+
 ```
 1.全局安装lerna（管理员权限）
 npm i lerna -g |yarn global add lerna
@@ -123,7 +126,7 @@ yarn worksapce <packagesname@ui/share> add <packagesname @ui/utils>
 - 创建git远程仓库，关联本地仓库
 
 2.npm仓库
-packages中管理的插件发布到官网或者私有服务器上
+packages中管理的插件发布到官网或者私有服务器上(提供测试仓库：https://github.com/features/packages)
 
 - 正确的仓库地址和用户名
 ```
@@ -238,23 +241,44 @@ fix模式和独立模式的区别在发布的区别见下图
 
 ### 3.2发布流程
 
-- 
-
-- 发布流程
+- 发布流程(发布之前之前提交代码)
 
   ```
-  1.提交代码
-  2.
+  1. 运行lerna updated来决定哪一个包需要被publish
+  2. 如果有必要，将会更新lerna.json中的version
+  3. 将所有更新过的的包中的package.json的version字段更新
+4. 将所有更新过的包中的依赖更新
+  5. 为新版本创建一个git commit或tag
+  6. 将包publish到npm上
+  7.撤销版本unpublish
   ```
 
-  
+- [`lerna publish`见文档](https://github.com/lerna/lerna/tree/main/commands/publish) 发布版本
 
-通过[`lerna publish`见文档](https://github.com/lerna/lerna/tree/main/commands/publish) 发布版本,
+```
+$ lerna publish # 用于发布更新
+$ lerna publish --skip-git # 不会创建git commit或tag
+$ lerna publish --skip-npm # 不会把包publish到npm上
+$ lerna publish from-package
+$ lerna publish from-git 
+```
 
-lerna publish from-package
+- 下架版本`npm unpublish [<@scope>/]<pkg>@<version> `
+
+通过,
+
+
 
 ![image-20220728171020014](install/image-20220728171020014.png)
 
 # 规范化配置
 
-- husky
+- husky:前端代码自动格式化
+-  lint-staged: 用于实现每次提交只检查本次提交所修改的文件。  
+- eslint
+
+```
+//初始化
+npx eslint --init
+```
+
