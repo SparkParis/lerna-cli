@@ -273,7 +273,7 @@ $ lerna publish from-git
 
 # 规范化配置
 
-##  1.[代码提交规范](https://www.conventionalcommits.org/en/v1.0.0/)
+##  1.[ commitizen 提交规范](https://www.conventionalcommits.org/en/v1.0.0/)
 
 - 安装插件
 
@@ -291,7 +291,7 @@ yarn add  commitizen cz-lerna-changelog -D -W //根目录安装提交规范
   },
 ```
 
-- commitizen并非采用全局安装，配置script脚本,运行`yarn commmit` 结果如下图所示，提交type选择见[commitien官网](https://www.conventionalcommits.org/en/v1.0.0/)
+- commitizen并非采用全局安装（或者也可在全局安装直接使用命令`git-cz`来提交），配置script脚本,运行`yarn commmit` 结果如下图所示，提交type选择见[commitien官网](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ```
 "script":{
@@ -301,7 +301,36 @@ yarn add  commitizen cz-lerna-changelog -D -W //根目录安装提交规范
 
 <img src="install/1659080471495.png" alt="1659080471495" style="zoom:80%;" />
 
-## 前端代码格式化
+## 2.commitlint && husky代码格式化
+
+ 校验的工作由 commitlint 来完成，校验的时机则由 husky 来指定。husky 继承了 Git 下所有的钩子，在触发钩子的时候，husky 可以阻止不合法的 commit,push 。用户在使用规范化提交方式提交就会提交失败
+
+- 安装插件
+
+```
+yarn add  @commitlint/cli @commitlint/config-conventional -D -W
+```
+
+- 根目录配置文件 commitlint.config.js 
+
+```
+module.exports = { 
+    extends: ['@commitlint/config-conventional'] 
+}
+```
+
+- 安装husky`yarn add  husky -D -W`
+- 根目录package.json添加`"husky"`
+
+```
+"husky": { 
+         "hooks": { 
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS" 
+     }
+ }
+```
+
+ "commit-msg":是git提交时校验提交信息的钩子，当触发时便会使用 commitlit 来校验 ,提交不符合规范不能提交
 
 - husky:前端代码自动格式化
 -  lint-staged: 用于实现每次提交只检查本次提交所修改的文件。  
