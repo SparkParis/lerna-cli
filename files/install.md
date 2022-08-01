@@ -4,20 +4,16 @@
 
 通过lerna+yarn+react+ts的方式来管理包,lerna的独立模式会让每个包单独发布和管理，创建lerna+monorepo项目是需要采用独立模式进行创建，项目搭建使用的规范，发布的规范，npm发包流程，版本管理等。本项目搭建环境实现：
 
-- 
-
 - 采用Independent模式
-- 根据Git提交信息，自动生成changelog
 - eslint规则检查
 - prettier自动格式化代码
-- 提交代码，代码检查hook
 - 遵循semver版本规范
-- **条件验证**: 如验证测试是否通过，是否存在未提交的代码，是否在主分支上进行版本发布操作
-- **version_bump**:发版的时候需要更新版本号，这时候如何更新版本号就是个问题，一般大家都会遵循 semVer语义，
-- **生成changelog**: 为了方便查看每个package每个版本解决了哪些功能，我们需要给每个package都生成一份changelog方便用户查看各个版本的功能变化。
-- **生成git tag**：为了方便后续回滚问题及问题排查通常需要给每个版本创建一个git tag
-- **git 发布版本**：每次发版我们都需要单独生成一个commit记录来标记milestone
-- **发布npm包**：发布完git后我们还需要将更新的版本发布到npm上，以便外部用户使用
+- 条件验证husky: 如验证测试是否通过，是否存在未提交的代码，是否在主分支上进行版本发布操作
+- version_bump:发版的时候需要更新版本号，这时候如何更新版本号就是个问题，一般大家都会遵循 semVer语义，
+- 生成changelog: 为了方便查看每个package每个版本解决了哪些功能，我们需要给每个package都生成一份changelog方便用户查看各个版本的功能变化。
+- 生成git tag：为了方便后续回滚问题及问题排查通常需要给每个版本创建一个git tag
+- git 发布版本：每次发版我们都需要单独生成一个commit记录来标记milestone
+- 发布npm包：发布完git后我们还需要将更新的版本发布到npm上，以便外部用户使用
 
 # lerna脚手架使用流程
 
@@ -382,4 +378,3 @@ $ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
 ![image-20220728171020014](install/image-20220728171020014.png)
 
 - 下架版本`npm unpublish [<@scope>/]<pkg>@<version> `
-
