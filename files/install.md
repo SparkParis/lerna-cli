@@ -363,15 +363,23 @@ fix模式和独立模式的区别在发布的区别见下图
 - [`lerna publish`见文档](https://github.com/lerna/lerna/tree/main/commands/publish) 发布版本
 
 ```
-$ lerna publish # 用于发布更新
+$ lerna version # 发布前进行版本确认
+$ lerna publish # 用于发布更新,之前不进行lerna version操作时，直接使用该命令也会进行lerna version操作，不带参数情况走bump version操作
 $ lerna publish --skip-git # 不会创建git commit或tag
 $ lerna publish --skip-npm # 不会把包publish到npm上
-$ lerna publish from-package
-$ lerna publish from-git 
+$ lerna publish from-package # 即根据 lerna 下的 package 里面的 pkg.json 的 version 变动来发包（ps：发布首次发包场景）
+$ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
 ```
 
-- 下架版本`npm unpublish [<@scope>/]<pkg>@<version> `
+通过lerna version +lerna publish效果如下：
+
+![image-20220728171020014](install/1659336668528.png)
+
+![image-20220728171020014](install/1659336542301.png)
+
+首次发包效果如下
 
 ![image-20220728171020014](install/image-20220728171020014.png)
 
-# 
+- 下架版本`npm unpublish [<@scope>/]<pkg>@<version> `
+
