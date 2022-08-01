@@ -47,7 +47,8 @@
   },
   "license": "MIT",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "gitHead": "38559791a96bc4945628df00a7248a9c73d33c00"
 }
