@@ -6,7 +6,7 @@ const CompOne = () => (
     <h3>
       <span role="img" aria-label="React Logo">
       </span>
-      Comp One
+      Comp One hello
     </h3>
   </div>
 );
