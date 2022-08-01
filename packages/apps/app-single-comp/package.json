@@ -1,6 +1,6 @@
 {
   "name": "@union-cli/app-single-comp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage": "https://react-workspaces.github.io/react-workspaces-playground",
   "private": true,
   "scripts": {
@@ -13,8 +13,8 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "dependencies": {
-    "@union-cli/components": "^1.0.4",
     "@react-workspaces/react-scripts": "^3.3.0-alpha-08",
+    "@union-cli/components": "^1.0.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
