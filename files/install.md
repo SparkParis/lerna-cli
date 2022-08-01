@@ -2,8 +2,9 @@
 
 # 简介
 
-通过lerna+yarn+react+ts的方式来管理包,
-lerna的独立模式会让每个包单独发布和管理，创建lerna+monorepo项目是需要采用独立模式进行创建，项目搭建使用的规范
+通过lerna+yarn+react+ts的方式来管理包,lerna的独立模式会让每个包单独发布和管理，创建lerna+monorepo项目是需要采用独立模式进行创建，项目搭建使用的规范，发布的规范，npm发包流程，版本管理等。本项目搭建环境实现：
+
+- 
 
 - 采用Independent模式
 - 根据Git提交信息，自动生成changelog
@@ -74,7 +75,14 @@ $ lerna  add lodash --scope @ui/utils //指定packages安装依赖
 $ lerna add packagesA --scope packageB //packages包内部安装依赖
 $ lerna add <pluginname> //安装公共组件，会安装到根目录以及所有的子packages中的node_modules)(不建议，建议通过yarn workspace安装到根目录)
 
-
+10.package内部包安装使用
+$ lerna link //建立软连接，在package.json中引入内部包，运行该命令即可导入成功，
+//package.json--devDependency
+···
+"devDependencies": {
+    "@xxx/utils": "^1.0.4" // xxx为对应子包utils上面的package.json中的name
+},
+···
 ```
 
 
@@ -340,7 +348,7 @@ fix模式和独立模式的区别在发布的区别见下图
 
 ### 3.2发布流程
 
-- 发布流程(发布之前之前提交代码)
+- 发布流程(发布之前提交代码)
 
   ```
   1. 运行lerna updated来决定哪一个包需要被publish
@@ -363,8 +371,6 @@ $ lerna publish from-git
 ```
 
 - 下架版本`npm unpublish [<@scope>/]<pkg>@<version> `
-
-
 
 ![image-20220728171020014](install/image-20220728171020014.png)
 
