@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://gitee.com/sparkparis123/lerna-cli/compare/@project/components@1.0.3...@project/components@1.0.4) (2022-08-01)
+
+
+### Bug Fixes
+
+* **fix:** test ([3b1e80e](https://gitee.com/sparkparis123/lerna-cli/commits/3b1e80e88652b655669d7087c88c92c3d8904858))
+
+
+
+
+
 ## [1.0.3](https://gitee.com/sparkparis123/lerna-cli/compare/@project/components@1.0.2...@project/components@1.0.3) (2022-08-01)
 
 **Note:** Version bump only for package @project/components

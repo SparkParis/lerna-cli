@@ -1,6 +1,6 @@
 {
   "name": "@project/components-typescript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/index.tsx",
   "main:src": "src/index.tsx",
   "scripts": {
