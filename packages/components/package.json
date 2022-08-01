@@ -1,5 +1,5 @@
 {
-  "name": "@project/components",
+  "name": "@union-cli/components",
   "version": "1.0.4",
   "homepage": "",
   "main": "src/index.js",
@@ -47,8 +47,7 @@
   },
   "license": "MIT",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
-  "gitHead": "38559791a96bc4945628df00a7248a9c73d33c00"
+  "gitHead": "eee3951350e090e893e90ec8a1ae929b1c240107"
 }

@@ -7,7 +7,7 @@ addParameters({
   },
 });
 
-const comps = require.context('@project/components/src', true, /.stories.js$/);
+const comps = require.context('@union-cli/components/src', true, /.stories.js$/);
 
 configure(() => {
   comps.keys().forEach(filename => comps(filename));

@@ -150,7 +150,7 @@ npm config get registry
 https://www.npmjs.com/
 
 4.电脑终端登录账户密码（见下图）
- yarn login //登录用户
+ yarn login //登录用户   npm login --registry=https://registry.npmjs.org/ 也可直接指定仓库
  npm whoami //查看当前用户
  npm unpublish <--force>// 撤销发布(不建议)
  npm deprecate <pkg>[@<version>] <message> //建议使用

@@ -1,5 +1,5 @@
 {
-  "name": "@project/components-typescript",
+  "name": "@union-cli/components-typescript",
   "version": "1.0.2",
   "main": "src/index.tsx",
   "main:src": "src/index.tsx",
@@ -50,9 +50,8 @@
     }
   },
   "license": "MIT",
-  "gitHead": "",
+  "gitHead": "eee3951350e090e893e90ec8a1ae929b1c240107",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "access": "public"
   }
 }

@@ -6,12 +6,12 @@
     "test": "FORCE_COLOR=true lerna run lint && CI=true FORCE_COLOR=true lerna run test -- --coverage",
     "deploy": "FORCE_COLOR=true lerna run deploy",
     "clear-all": "rimraf node_modules && lerna clean -y",
-    "start:app-ant-design": "yarn workspace @project/app-ant-design-rewired start",
-    "start:app-multi": "yarn workspace @project/app-multi-comps start",
-    "start:app-single": "yarn workspace @project/app-single-comp start",
-    "start:app-ts": "yarn workspace @project/app-typescript start",
-    "start:storybook": "yarn workspace @project/storybook storybook",
-    "start:storybook-ts": "yarn workspace @project/storybook-typescript storybook"
+    "start:app-ant-design": "yarn workspace @union-cli/app-ant-design-rewired start",
+    "start:app-multi": "yarn workspace @union-cli/app-multi-comps start",
+    "start:app-single": "yarn workspace @union-cli/app-single-comp start",
+    "start:app-ts": "yarn workspace @union-cli/app-typescript start",
+    "start:storybook": "yarn workspace @union-cli/storybook storybook",
+    "start:storybook-ts": "yarn workspace @union-cli/storybook-typescript storybook"
   },
   "workspaces": {
     "packages": [

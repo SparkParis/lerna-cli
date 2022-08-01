@@ -1,5 +1,5 @@
 {
-  "name": "@project/storybook",
+  "name": "@union-cli/storybook",
   "version": "1.0.4",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.7.7",
-    "@project/components": "^1.0.4",
+    "@union-cli/components": "^1.0.4",
     "@react-workspaces/react-scripts": "3.3.0-alpha-08",
     "babel-loader": "^8.0.6",
     "cross-env": "6.0.3",
