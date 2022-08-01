@@ -1,13 +1,13 @@
 {
   "name": "@project/storybook-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@project/components-typescript": "1.0.0",
+    "@project/components-typescript": "^1.0.1",
     "@react-workspaces/react-scripts": "3.3.0-alpha-08",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
