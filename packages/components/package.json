@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "main:src": "src/index.js",
   "description": "common components for share with jsx",
-  "author": "ftt",
+  "author": "",
   "keywords": [
     "react",
     "eslint",
