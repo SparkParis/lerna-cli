@@ -1,6 +1,6 @@
 {
   "name": "@union-cli/app-typescript",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@react-workspaces/react-scripts": "^3.3.0-alpha-08",
