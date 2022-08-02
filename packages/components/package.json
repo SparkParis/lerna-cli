@@ -1,6 +1,6 @@
 {
   "name": "@union-cli/components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "ftt",
   "main": "src/index.js",
   "main:src": "src/index.js",
