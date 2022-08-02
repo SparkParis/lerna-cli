@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "main": "src/index.tsx",
   "main:src": "src/index.tsx",
-  "homepage": "",
+  "homepage": "ftt",
   "description": "common components for share with ts",
   "keywords": [
     "react",
