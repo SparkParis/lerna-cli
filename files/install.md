@@ -385,3 +385,24 @@ $ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
 - 发布之前必须先commit
 - 更改packages后，在提交时会自动检索修改的package，每次发布只发布修改过的package包，并在发布时将最新版本同步到内部依赖的其他package
 - 提交版本更新和提交的commit选择的type类型有关系，在提交时务必规范提交`yarn commit`，eg：fix---patch，feat-minor
+- 发布之前会打tag（通过tag我们可以检查每个版本的代码做保存和查看），并将tag推送到git仓库（也可手动打tag，运行命令`lerna publish from-git`发布,**建议手动打tag**）
+- 首次创建的package发布运行`lerna publish from-package`,其无法检查到上次的commit
+
+# 补充
+
+### [`git tag`](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag)命令
+
+```
+$ git tag |git tag -l *-rc* //列表|以及删选
+$ git log --pretty=oneline  //查看commit记录
+$ git tag -a -f tagname //重新打标签
+$ git tag -d tagname //删除
+//设置本地仓库远程仓库源
+git remote set-url origin https://xxx.git  
+
+```
+
+
+
+
+
