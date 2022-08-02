@@ -383,10 +383,25 @@ $ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
 **lerna发布注意事项**
 
 - 发布之前必须先commit
-- 更改packages后，在提交时会自动检索修改的package，每次发布只发布修改过的package包，并在发布时将最新版本同步到内部依赖的其他package
+- 更改packages后，在提交时会自动检索修改的package，每次发布只发布修改过的package包，并在发布时将最新版本同步到内部依赖的其他package（根目录的文件修改在发布不会被检测）
 - 提交版本更新和提交的commit选择的type类型有关系，在提交时务必规范提交`yarn commit`，eg：fix---patch，feat-minor
 - 发布之前会打tag（通过tag我们可以检查每个版本的代码做保存和查看），并将tag推送到git仓库（也可手动打tag，运行命令`lerna publish from-git`发布,**建议手动打tag**）
 - 首次创建的package发布运行`lerna publish from-package`,其无法检查到上次的commit
+
+## 4.内部模块依赖
+
+新创建的package，引入内部模块`@scope/pkg`
+
+```
+1.---package.json
+···
+"devDependency"{
+	"@scope/pkg":"^1.0.0"
+}
+···
+2.建立软连接
+lerna link
+```
 
 # 补充
 

@@ -1,5 +1,11 @@
 # introduce
 
+# instruction
+
+--lerna-cli-master
+
+​	-- 
+
 
 > 💥 Now supports TypeScript and React-App-Rewired!  
 
