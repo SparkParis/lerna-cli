@@ -1,6 +1,6 @@
 {
   "name": "@union-cli/app-single-comp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://react-workspaces.github.io/react-workspaces-playground",
   "private": true,
   "scripts": {
