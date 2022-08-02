@@ -321,8 +321,8 @@ fix模式和独立模式的区别在发布的区别见下图
 
 **版本选择**
 
-- patch： 升级补丁版本号 
-- minor： 升级小版本号 
+- patch： 升级补丁版本号      fix
+- minor： 升级小版本号          feat
 - major： 升级大版本号 
 - prepatch、preminor、premajor、prerelease：先行版本
   - 内部版本alpha：内部版本较多，处于开发阶段，存在bug，开发人员使用阶段
@@ -380,3 +380,8 @@ $ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
 
 - 下架版本`npm unpublish [<@scope>/]<pkg>@<version> --force`
 
+**lerna发布注意事项**
+
+- 发布之前必须先commit
+- 更改packages后，在提交时会自动检索修改的package，每次发布只发布修改过的package包，并在发布时将最新版本同步到内部依赖的其他package
+- 提交版本更新和提交的commit选择的type类型有关系，在提交时务必规范提交`yarn commit`，eg：fix---patch，feat-minor

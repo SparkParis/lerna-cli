@@ -1,7 +1,7 @@
 {
   "name": "@union-cli/components",
   "version": "1.0.2",
-  "homepage": "",
+  "homepage": "ftt",
   "main": "src/index.js",
   "main:src": "src/index.js",
   "description": "common components for share with jsx",
