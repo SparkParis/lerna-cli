@@ -130,7 +130,7 @@ yarn worksapce <packagesname@ui/share> add <packagesname @ui/utils>
 - 创建git远程仓库，关联本地仓库
 
 2.npm仓库
-packages中管理的插件发布到官网或者私有服务器上(提供测试仓库：https://github.com/features/packages)
+packages中管理的插件发布到官网或者私有服务器上(提供测试仓库：https://github.com/features/packages)[npm发包常会遇到的问题供参考](https://blog.csdn.net/u011194386/article/details/109714164)
 
 - 正确的仓库地址和用户名
 ```
@@ -148,6 +148,7 @@ npm config get registry
 
 3.npm官网注册账户并登录
 https://www.npmjs.com/
+注意在发包的时候如果是"@组织名/pkg"命名的插件，需要在仓库中创建对应的组织名才能发布成功
 
 4.电脑终端登录账户密码（见下图）
  yarn login //登录用户   npm login --registry=https://registry.npmjs.org/ 也可直接指定仓库
@@ -297,7 +298,7 @@ fix模式和独立模式的区别在发布的区别见下图
 
 ## 2.packages中不同包packages.json配置
 
-- packages中的子包名package.json中的包名如果是`@/package/name`带有的为private权限，如果要设置为公有的，需要做如下设置，此时才可进行发布，私有的情况下发包需要付费。
+- packages中的子包名package.json中的包名如果是`@/package/name`带有的为private权限，如果要设置为公有的，需要做如下设置，此时才可进行发布，私有的情况下发包需要付费。ps：包名有前缀的情况下都需要添加
 
 ```
 "publishConfig": {
@@ -378,3 +379,4 @@ $ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
 ![image-20220728171020014](install/image-20220728171020014.png)
 
 - 下架版本`npm unpublish [<@scope>/]<pkg>@<version> `
+
