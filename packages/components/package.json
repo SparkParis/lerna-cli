@@ -4,6 +4,13 @@
   "homepage": "",
   "main": "src/index.js",
   "main:src": "src/index.js",
+  "description": "common components for share with jsx",
+  "author": "ftt",
+  "keywords": [
+    "react",
+    "eslint",
+    "jsx"
+  ],
   "scripts": {
     "test": "react-scripts test",
     "lint": "eslint ./src/**/*.js --max-warnings=0 --format=codeframe"
