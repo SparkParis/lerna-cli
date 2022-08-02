@@ -378,5 +378,5 @@ $ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
 
 ![image-20220728171020014](install/image-20220728171020014.png)
 
-- 下架版本`npm unpublish [<@scope>/]<pkg>@<version> `
+- 下架版本`npm unpublish [<@scope>/]<pkg>@<version> --force`
 
