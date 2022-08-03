@@ -3349,6 +3349,16 @@
     semver "^6.3.0"
     tsutils "^3.17.1"
 
+"@union-cli/components@^1.0.5":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@union-cli/components/-/components-1.0.2.tgz#0d626e46176a4c15c4a5b7a1fd626e534a573b9c"
+  integrity sha512-EydP+jyDAhSn1G8rA4qW8cuwDPVVDDoTX4MSMbdh/sfl5cgkAV0TtbrPQOZRf/HGio5SSZXnOUPdNR2dzkkYTQ==
+  dependencies:
+    "@react-workspaces/react-scripts" "3.3.0-alpha-08"
+    "@storybook/react" "^5.2.8"
+    react "^16.12.0"
+    react-dom "^16.12.0"
+
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.8.5.tgz#51b1c5fe6576a34953bf4b253df9f0d490d9e359"

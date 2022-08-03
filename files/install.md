@@ -200,7 +200,7 @@ yarn add  commitizen cz-lerna-changelog -D -W //根目录安装提交规范
 | build | 构建相关 | refactor | 重构，无修复bug和添加功能        |
 | perf  | 性能优化 | revert   | 回退commit版本                   |
 
-## 2.commitlint && husky提交格式化
+## 2.commitlint && [husky-v6](https://typicode.github.io/husky/#/)提交格式化
 
  校验的工作由 commitlint 来完成，校验的时机则由 husky 来指定。husky 继承了 Git 下所有的钩子，在触发钩子的时候，husky 可以阻止不合法的 commit,push 。用户在使用规范化提交方式提交就会提交失败
 
@@ -222,12 +222,23 @@ module.exports = {
 - 根目录package.json添加`"husky"`
 
 ```
+"script":{
+	"prepare": "husky install" //yarn prepare
+}
 "husky": { 
          "hooks": { 
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS" 
      }
  }
 ```
+
+- 添加hook
+
+```
+npx husky add .husky/pre-commit "npm test" //在.husky目錄下新建一個pre-commit文件，
+```
+
+
 
  "commit-msg":是git提交时校验提交信息的钩子，当触发时便会使用 commitlit 来校验 ,提交不符合规范不能提交
 
