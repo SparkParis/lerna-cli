@@ -1,12 +1,13 @@
 # introduce
 
-lerna仓库
+- lerna3(react)
+- yarn workspace
+- TypeScript and React-App-Rewired
+- 
 
-# instruction
 
---lerna-cli-master
 
-​	-- 
+​	
 
 
 > 💥 Now supports TypeScript and React-App-Rewired!  
