@@ -9,7 +9,7 @@
 - [React-App-Rewired](https://github.com/timarney/react-app-rewired) （[antd](https://3x.ant.design/docs/react/use-with-create-react-app-cn)）
 - Hot Reload all Apps, Components & Storybooks
 - Config global script for all workspace with eslint & jest
-- Deploy your apps to Github Pages using one command
+- Deploy your apps to Github Pages using one command 
 
 
 
