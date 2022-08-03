@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "commit": "git-cz",
+    "prepare": "husky install",
     "test": "FORCE_COLOR=true lerna run lint && CI=true FORCE_COLOR=true lerna run test -- --coverage",
     "deploy": "FORCE_COLOR=true lerna run deploy",
     "clear-all": "rimraf node_modules && lerna clean -y",

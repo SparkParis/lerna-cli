@@ -165,6 +165,8 @@ lerna publish //注意在发包之前先提交代码
 
 ##  1.[ commitizen 提交规范](https://www.conventionalcommits.org/en/v1.0.0/)
 
+作用：自动化生成CHANGLOG；基于提交类型自动决定语义化的版本变更；触发自动化构建和部署流程；提供结构化提交流程
+
 - 安装插件
 
 ```

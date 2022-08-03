@@ -1,5 +1,7 @@
 # introduce
 
+lerna仓库
+
 # instruction
 
 --lerna-cli-master
