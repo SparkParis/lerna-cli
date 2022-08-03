@@ -1,27 +1,17 @@
 # introduce
 
-- lerna3(react)
-- yarn workspace
-- TypeScript and React-App-Rewired
-- 
+基于yarn+lerna搭建monorepo仓库，仓库包含公共组件库（components & components-typescript），CRA Apps template（ts&js），以及storybook（ts&js）。仓库实现规范化配置（commiten）
+
+- Yarn + Lerna3 + TypeScript
+- Create React App template with（ts&js）(react16)
+-  [Storybook 5](https://storybook.js.org/docs/react/get-started/introduction)（UI组件开发环境）
+- yarn workspace(控制多仓库包依赖和安装)
+- [React-App-Rewired](https://github.com/timarney/react-app-rewired) （[antd](https://3x.ant.design/docs/react/use-with-create-react-app-cn)）
+- Hot Reload all Apps, Components & Storybooks
+- Config global script for all workspace with eslint & jest
+- Deploy your apps to Github Pages using one command
 
 
-
-​	
-
-
-> 💥 Now supports TypeScript and React-App-Rewired!  
-
-## Features
-
-- ⚛️ Create React App 3 (React 16.8)
-- 📖 Storybook 5
-- 🐈 Yarn Workspaces
-- 🐉 Lerna 3
-- ✨ Host Multiple CRA Apps, Component Libraries & Storybooks in one Monorepo
-- 🔥 Hot Reload all Apps, Components & Storybooks
-- 👨‍🔬 Test all workspaces with Eslint & Jest using one command
-- :octocat: Deploy your apps to Github Pages using one command
 
 ## Contents
 
