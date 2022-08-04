@@ -1,4 +1,4 @@
-# introduce
+## introduce
 
 基于yarn+lerna搭建monorepo仓库，仓库包含公共组件库（components & components-typescript），CRA Apps template（ts&js），以及storybook（ts&js）。仓库实现规范化配置（commiten）
 
@@ -10,8 +10,6 @@
 - Hot Reload all Apps, Components & Storybooks
 - Config global script for all workspace with eslint & jest
 - Deploy your apps to Github Pages using one command 
-
-
 
 ## Contents
 
@@ -32,13 +30,13 @@
 
 ### Pre-Requisites
 
-- Yarn 1.13.0
-- Node 11.14.0
+- Yarn 2.2.0
+- Node 16.14.0
 
 ### Installation
 
 ```bash
-git clone git@github.com:react-workspaces/react-workspaces-playground.git
+git clone git@****.git
 cd react-workspaces-playground
 yarn
 ```
