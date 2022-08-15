@@ -22,6 +22,9 @@
       "packages/storybook",
       "packages/storybook-typescript"
     ],
+    "production": true,
+    "development": true,
+    "package-entry": "main:src",
     "nohoist": [
       "packages/apps/**/webpack-dev-server",
       "**/babel-loader",

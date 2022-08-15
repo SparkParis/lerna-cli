@@ -2,10 +2,10 @@
 
 基于yarn+lerna搭建monorepo仓库，仓库包含公共组件库（components & components-typescript），CRA Apps template（ts&js），以及storybook（ts&js）。仓库实现规范化配置（commiten）
 
-- Yarn + Lerna3 + TypeScript
+- Yarn + [Lerna3](https://github.com/lerna/lerna) + TypeScript
 - Create React App template with（ts&js）(react16)
 -  [Storybook 5](https://storybook.js.org/docs/react/get-started/introduction)（UI组件开发环境）
-- yarn workspace(控制多仓库包依赖和安装)
+- [yarn workspace](https://yarn.bootcss.com/docs/workspaces)(控制多仓库包依赖和安装)
 - [React-App-Rewired](https://github.com/timarney/react-app-rewired) （[antd](https://3x.ant.design/docs/react/use-with-create-react-app-cn)）
 - Hot Reload all Apps, Components & Storybooks
 - Config global script for all workspace with eslint & jest
