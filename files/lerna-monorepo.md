@@ -1,5 +1,21 @@
 # monorepo 多仓库管理+组件库部署
 
+**名词解释**
+
+多仓库：也可理解为多个包package的管理，每个包可以理解为我们的一个应用（h5应用程序，开发的工程项目等独立的项目）或者npm包（插件、具有单一功能的npm包、公共的基础组件库等），每个包之间都是独立的，相互之间不影响。
+
+​       多个包放在一起管理的是他们之间的依赖关系（公共的依赖只安装在根目录，独有的安装在各自的package下，通过软连接的方式共用根目录的依赖），见下图。
+
+<img src="lerna-monorepo/1662359426685.png" alt="1662359426685" style="zoom:33%;" />
+
+
+
+**适用场景**
+
+多仓库适合： 基础框架，基础工具类，公共组件库 （ `h5` 组件库，`web` 组件库，`mobile` 组件库，以及对应的 `doc` 项目）。通过lerna来统一管理公共组件库的发布和版本维护。适合通用模块的管理，不涉及业务逻辑。
+
+**技术调研**
+
 调研：monorepo特点-> **快速、高效利用磁盘空间。** 
 
 - pnpm  monorepo： 通过**软连接**方式添加依赖，所有的**依赖只需要下载一次** （未经验证）
@@ -11,6 +27,8 @@
 **pnpm**： 管理多包的工具。速度快 、 高效利用磁盘空间 、 支持 monorepo 、 严格（只能访问指定的依赖项package.json） 、 确定性 (pnpm-lock.yaml)
 
 ## 1.lerna多仓库管理（lerna+yarn）
+
+大型的项目分为：业务模块和通用模块，通用的模块会被多个业务使用，这部分往往通过npm包提供服务。lerna中可以统一管理抽离的公共的通用模块以npm的方式发布和维护
 
 解决的问题：
 
@@ -351,9 +369,128 @@ $ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
 lerna link
 ```
 
+## 3.使用文档
 
+### 3.1安装
 
-## 3.总结
+####  环境准备
+
+- Yarn 2.2.0
+- Node 16.14.0
+
+####  安装
+
+```
+git clone git@****.git
+cd lerna-cli
+yarn
+```
+
+#### 安装依赖
+
+```
+yarn workspace <workspace_name> <command>
+```
+
+- example
+
+```
+yarn workspace my-app(packagename) add react-router-dom(pluginname) --dev
+```
+
+This will add `react-router-dom` as `dependencies` in your `packages/my-app/package.json`. To remove dependency use `remove` instead of add
+
+### 3.2 使用
+
+**Starting Project in Workspace**
+
+From your project root type start command for desired app
+
+```
+yarn workspace @union-cli/app-single-comp start
+```
+
+所有的script `start`
+
+```
+"scripts": {
+    "start:app-ant-design": "yarn workspace @union-cli/app-ant-design-rewired start",
+    "start:app-multi": "yarn workspace @union-cli/app-multi-comps start",
+    "start:app-single": "yarn workspace @union-cli/app-single-comp start",
+    "start:app-ts": "yarn workspace @union-cli/app-typescript start",
+    "start:storybook": "yarn workspace @union-cli/storybook storybook",
+    "start:storybook-ts": "yarn workspace @union-cli/storybook-typescript storybook",
+    ...
+  }
+```
+
+**Starting The Storybook**
+
+```
+yarn start:storybook
+```
+
+**Linting & Testing**
+
+```
+yarn workspace <workspace-root> test
+```
+
+**Creating a New CRA App**
+
+Use Create React App's `--scripts-version` flag to create a new React App with Yarn Workspaces support.
+
+```
+react-app --scripts-version @react-workspaces/react-scripts my-app
+```
+
+To create new TS app use Create React App's `--template` flag with `--scripts-version` flag to create a new React App with Yarn Workspaces support and Typescript.
+
+```
+npx create-react-app --scripts-version @react-workspaces/react-scripts --template typescript my-ts-app
+```
+
+**公共组件库开发**
+
+组件库包名：
+
+```
+ packages/components //js
+ packages/components-typescript //ts
+  "start:storybook": "yarn workspace @union-cli/storybook storybook",//js可视化文档撰写
+  "start:storybook-ts": "yarn workspace @union-cli/storybook-typescript storybook",//ts可视化文档撰写
+```
+
+启动storyBook对应的项目`yarn start:storybook `，在对应的包`components`中开发组件即可
+
+- 启动
+
+  ```
+  yarn start:storybook  || yarn start:storybook-ts //可视化启动
+  ```
+
+- 发版
+
+  详细见2.3
+
+  ```
+   lerna version # 发布前进行版本确认
+  $ lerna publish # 用于发布更新,之前不进行lerna version操作时，直接使用该命令也会进行lerna version操作，不带参数情况走bump version操作
+  $ lerna publish --skip-git # 不会创建git commit或tag
+  $ lerna publish --skip-npm # 不会把包publish到npm上
+  $ lerna publish from-package # 即根据 lerna 下的 package 里面的 pkg.json 的 version 变动来发包（ps：发布首次发包场景）
+  $ lerna publish from-git # 即根据 git commit 上的 annotaed tag 进行发包
+  ```
+
+- 使用
+
+  ```
+  切换到发布的镜像源
+  
+  npm  install 包名
+  ```
+
+## 4.总结
 
 **集成配置**
 

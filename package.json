@@ -22,7 +22,7 @@
       "packages/storybook",
       "packages/storybook-typescript"
     ],
-    "production": true,
+    "production": false,
     "development": true,
     "package-entry": "main:src",
     "nohoist": [
